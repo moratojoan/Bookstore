@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Joan Bookstore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <header class="page-header">
+            <img class="logo" src="images/logo1.png" alt="logo">
+            <h1>BookStore</h1>
+            <div class="filters">
+                <input type="text" placeholder="Busca tu libro (Título, Descripción...)" v-model="searchInfo">
+                <div>
+                    <label>Filter by Language:</label>
+                    <select name="Languages" v-model="filterLanguages">
+                        <option value="All" selected>All</option>
+                        <option v-for="language in languages" v-bind:value="language">{{language}}</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+        <div class="booksGrid">
+            <div v-for="(book, index) in books" v-if="searchMachine(book)" class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img class="bookCard" v-bind:src="book.cover" v-bind:alt="book.cover" v-bind:data-imgPos="index">
+                    </div>
+                    <div class="flip-card-back" v-bind:data-infoPos="index">
+                        <div class="flip-card-back-content">
+                            <h4>{{book.title}}</h4>
+                            <p>{{book.description}}</p>
+                            <p>Language: {{book.language}}</p>
+                            <button><a v-bind:href="book.detail" data-fancybox>More Info</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--SCRIPTS-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.js"></script>
+    <script src="scripts/main-vue.js"></script>
+</body>
+
+</html>
