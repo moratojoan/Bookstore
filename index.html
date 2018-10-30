@@ -6,7 +6,7 @@
     <title>Joan Bookstore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css">
     <link rel="stylesheet" href="styles/style.css">
 </head>
 
@@ -37,7 +37,7 @@
                             <h4>{{book.title}}</h4>
                             <p>{{book.description}}</p>
                             <p>Language: {{book.language}}</p>
-                            <button><a v-bind:href="book.detail" data-fancybox>More Info</a></button>
+                            <button><a v-bind:href="book.detail" v-bind:data-caption="book.title" data-fancybox="bigImage" v-bind:data-thumb="book.detail" data-width="6400" data-height="6770">More Info</a></button>
                         </div>
                     </div>
                 </div>
@@ -50,8 +50,8 @@
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js"></script>
     <script src="scripts/main-vue.js"></script>
 </body>
 

@@ -23,11 +23,11 @@ var app = new Vue({
                     this.dropDownMenuLenguages();
                 })
         },
-        dropDownMenuLenguages: function(){
+        dropDownMenuLenguages: function () {
             this.languages = [...new Set(this.books.map(book => book.language))].sort();
         },
         searchMachine: function (book) {
-            return (book.title.toLowerCase().includes(this.searchInfo.trim().toLowerCase()) || book.description.toLowerCase().includes(this.searchInfo.trim().toLowerCase()) || book.language.toLowerCase().includes(this.searchInfo.trim().toLowerCase())) && (this.filterLanguages=="All" || this.filterLanguages==book.language);
+            return (book.title.toLowerCase().includes(this.searchInfo.trim().toLowerCase()) || book.description.toLowerCase().includes(this.searchInfo.trim().toLowerCase()) || book.language.toLowerCase().includes(this.searchInfo.trim().toLowerCase())) && (this.filterLanguages == "All" || this.filterLanguages == book.language);
         }
     },
     created: function () {
