@@ -9,7 +9,8 @@ var app = new Vue({
         books: null,
         languages: [],
         searchInfo: "",
-        filterLanguages: "All"
+        filterLanguages: "All",
+        someBooks: true
     },
     methods: {
         startFetch: function (url) {
@@ -19,7 +20,6 @@ var app = new Vue({
                 .then(response => response.json())
                 .then(myData => {
                     this.books = myData.books;
-                    console.log(this.books);
                     this.dropDownMenuLenguages();
                 })
         },
@@ -32,5 +32,8 @@ var app = new Vue({
     },
     created: function () {
         this.startFetch(this.url);
+    },
+    updated: function () {
+        this.someBooks = (document.getElementsByClassName("booksGrid")[0].children.length !== 0);
     }
 })
